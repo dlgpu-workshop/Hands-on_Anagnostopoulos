@@ -57,6 +57,13 @@ int main() {
     cudaMalloc((void**)&d_Y, N * sizeof(float));
 
     // Initialize h_X and h_F...
+    for (int i = 0; i < N; i++) {
+        h_X[i] = (float)rand() / RAND_MAX;
+    }
+    for (int i = 0; i < M; i++) {
+        h_F[i] = (float)rand() / RAND_MAX;
+    }
+
 
     // Copy to device
     cudaMemcpy(d_X, h_X, N * sizeof(float), cudaMemcpyHostToDevice);
