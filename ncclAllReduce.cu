@@ -12,7 +12,7 @@ __global__ void Dev_dot(double *x, double *y, int n) {
    int t = blockDim.x * blockIdx.x + threadIdx.x;
    
    if (t < n) 
-    tmp[i] = x[t];
+    tmp[i] = x[t] * y[t];
    
    __syncthreads();
 
